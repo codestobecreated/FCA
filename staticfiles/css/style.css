@@ -1,0 +1,191 @@
+:root {
+    --primary-yellow: #FFD700;
+    --dark-bg: #0A0A0A;
+    --card-bg: #1A1A1A;
+    --text-main: #FFFFFF;
+    --text-muted: #A0A0A0;
+    --accent-glow: rgba(255, 215, 0, 0.3);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-weight: 800;
+    letter-spacing: -0.02em;
+}
+
+.text-yellow { color: var(--primary-yellow); }
+
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5%;
+    height: 80px; /* Fixed height */
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-main);
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition-smooth);
+}
+
+.nav-links a:hover {
+    color: var(--primary-yellow);
+}
+
+/* App-wide Layout */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem 5%;
+}
+
+/* Premium Components */
+.fca-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.fca-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-yellow);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px var(--accent-glow);
+}
+
+.fca-btn {
+    background: var(--primary-yellow);
+    color: var(--dark-bg);
+    padding: 0.8rem 1.5rem;
+    border-radius: 8px;
+    font-weight: 700;
+    text-decoration: none;
+    display: inline-block;
+    transition: var(--transition-smooth);
+    border: none;
+    cursor: pointer;
+}
+
+.fca-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px var(--primary-yellow);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, #1a1a1a 0%, #0a0a0a 100%);
+    position: relative;
+    text-align: center;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(45deg, rgba(255, 215, 0, 0.02) 0px, rgba(255, 215, 0, 0.02) 1px, transparent 1px, transparent 10px);
+    pointer-events: none;
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+/* Product Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Footer */
+footer {
+    background: #050505;
+    padding: 4rem 5%;
+    margin-top: 5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Newsletter & Extra Utils */
+.newsletter-input {
+    background: #111;
+    border: 1px solid #222;
+    padding: 1rem;
+    color: white;
+    width: 100%;
+    margin-bottom: 1rem;
+    border-radius: 4px;
+}
+
+.newsletter-input:focus {
+    border-color: var(--primary-yellow);
+    outline: none;
+}
+
+@media (max-width: 1024px) {
+    nav { flex-direction: column; gap: 1.5rem; padding: 2rem 5%; }
+    .nav-links { gap: 1rem; font-size: 0.8rem; }
+    form { margin-left: 0 !important; width: 100%; }
+    form input { width: 100% !important; }
+}
+
+/* Feature Icons */
+.feature-card {
+    cursor: pointer;
+}
+
+.feature-icon {
+    color: var(--text-main);
+    transition: var(--transition-smooth);
+}
+
+.feature-card:hover .feature-icon {
+    color: var(--primary-yellow);
+    transform: scale(1.1);
+}
