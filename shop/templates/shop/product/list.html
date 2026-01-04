@@ -6,7 +6,7 @@
 {% endblock %}
 
 {% block content %}
-<section class="hero" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('/media/site/hero/main.png'); background-size: cover; background-position: center; background-attachment: fixed;">
+<section class="hero" style="background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7)), url('{% static "images/site/hero/main.png" %}'); background-size: cover; background-position: center; background-attachment: fixed;">
     <div class="hero-content">
         <h1>UNLEASH YOUR <span class="text-yellow">DRIVE</span></h1>
         <p style="font-size: 1.2rem; color: var(--text-muted); max-width: 600px; margin: 0 auto 2rem;">Discover premium automotive accessories designed for performance, style, and durability. FCA brings you the future of car customization.</p>
@@ -21,15 +21,15 @@
 <section id="categories" class="container" style="padding: 5rem 5%;">
     <h2 style="font-size: 2.5rem; text-align: center; margin-bottom: 3rem;">FEATURED <span class="text-yellow">CATEGORIES</span></h2>
     <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-        <div class="fca-card" style="height: 300px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to bottom, transparent 20%, #000 90%), url('/media/site/categories/exterior.png'); background-size: cover; background-position: center;">
+        <div class="fca-card" style="height: 300px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to bottom, transparent 20%, #000 90%), url('{% static "images/site/categories/exterior.png" %}'); background-size: cover; background-position: center;">
             <h3 style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">EXTERIOR</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem; text-shadow: 0 1px 2px rgba(0,0,0,0.8);">Body kits, Spoilers, Grilles</p>
         </div>
-        <div class="fca-card" style="height: 300px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to bottom, transparent 20%, #000 90%), url('/media/site/categories/performance.png'); background-size: cover; background-position: center;">
+        <div class="fca-card" style="height: 300px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to bottom, transparent 20%, #000 90%), url('{% static "images/site/categories/performance.png" %}'); background-size: cover; background-position: center;">
             <h3 style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">PERFORMANCE</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem; text-shadow: 0 1px 2px rgba(0,0,0,0.8);">Exhausts, Intakes, Tuning</p>
         </div>
-        <div class="fca-card" style="height: 300px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to bottom, transparent 20%, #000 90%), url('/media/site/categories/interior.png'); background-size: cover; background-position: center;">
+        <div class="fca-card" style="height: 300px; display: flex; flex-direction: column; justify-content: flex-end; background: linear-gradient(to bottom, transparent 20%, #000 90%), url('{% static "images/site/categories/interior.png" %}'); background-size: cover; background-position: center;">
             <h3 style="text-shadow: 0 2px 4px rgba(0,0,0,0.8);">INTERIOR</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem; text-shadow: 0 1px 2px rgba(0,0,0,0.8);">Lighting, Covers, Tech</p>
         </div>
@@ -83,7 +83,7 @@
                     {% if product.image %}
                         <img src="{{ product.image.url }}" alt="{{ product.name }}" style="width: 100%; height: 100%; object-fit: cover;">
                     {% else %}
-                        <img src="/media/site/default-product.png" alt="Product Placeholder" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
+                        <img src="{% static 'images/site/default-product.png' %}" alt="Product Placeholder" style="width: 100%; height: 100%; object-fit: cover; opacity: 0.7;">
                     {% endif %}
                 </div>
                 <h3 style="margin-bottom: 0.5rem;">{{ product.name }}</h3>
