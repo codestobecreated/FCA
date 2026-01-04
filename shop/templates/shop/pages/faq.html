@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Technical FAQ | FCA Performance Hub{% endblock %}
+
+{% block content %}
+<section class="hero" style="min-height: 35vh; background: radial-gradient(circle at center, #1a1a1a, #0a0a0a);">
+    <div class="hero-content">
+        <h1 style="font-size: 3.5rem;">TECHNICAL <span class="text-yellow">FAQ</span></h1>
+        <p style="color: var(--text-muted); font-size: 1.1rem; max-width: 700px; margin: 2rem auto;">
+            Everything you need to know about fitment, installation, and performance certification.
+        </p>
+    </div>
+</section>
+
+<div class="container" style="padding-bottom: 8rem; max-width: 1000px;">
+    
+    <div style="margin-top: -3rem;">
+        
+        <!-- Category: Fitment -->
+        <div style="margin-bottom: 4rem;">
+            <h3 style="color: var(--primary-yellow); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 2rem; border-left: 3px solid var(--primary-yellow); padding-left: 1rem;">FITMENT & COMPATIBILITY</h3>
+            
+            <div class="fca-card" style="margin-bottom: 1.5rem; cursor: pointer;">
+                <h4 style="margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    Will these parts fit my specific model year?
+                    <span style="color: var(--primary-yellow);">+</span>
+                </h4>
+                <p style="color: var(--text-muted); line-height: 1.6;">Our parts are designed using OEM 3D scans. Each product page lists specific model years. If you are unsure, provide your VIN via the contact form for a precision verification.</p>
+            </div>
+
+            <div class="fca-card" style="margin-bottom: 1.5rem; cursor: pointer;">
+                <h4 style="margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    Do you offer professional installation?
+                    <span style="color: var(--primary-yellow);">+</span>
+                </h4>
+                <p style="color: var(--text-muted); line-height: 1.6;">We have a network of certified partner shops globally. For major builds (widebodies/engine mods), we recommend using one of our authorized centers to maintain warranty status.</p>
+            </div>
+        </div>
+
+        <!-- Category: Shipping -->
+        <div style="margin-bottom: 4rem;">
+            <h3 style="color: var(--primary-yellow); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 2rem; border-left: 3px solid var(--primary-yellow); padding-left: 1rem;">SHIPPING & LOGISTICS</h3>
+            
+            <div class="fca-card" style="margin-bottom: 1.5rem; cursor: pointer;">
+                <h4 style="margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    How is carbon fiber protected during shipping?
+                    <span style="color: var(--primary-yellow);">+</span>
+                </h4>
+                <p style="color: var(--text-muted); line-height: 1.6;">All carbon components are vacuum-sealed, foam-wrapped, and shipped in double-walled reinforced crates to ensure zero-defect delivery.</p>
+            </div>
+
+            <div class="fca-card" style="margin-bottom: 1.5rem; cursor: pointer;">
+                <h4 style="margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    What is the average lead time?
+                    <span style="color: var(--primary-yellow);">+</span>
+                </h4>
+                <p style="color: var(--text-muted); line-height: 1.6;">In-stock items ship within 48 hours. Custom-order carbon components (forged/colored) typically have a lead time of 4-6 weeks for artisan manufacturing.</p>
+            </div>
+        </div>
+
+        <!-- Category: Warranty -->
+        <div>
+            <h3 style="color: var(--primary-yellow); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 2rem; border-left: 3px solid var(--primary-yellow); padding-left: 1rem;">WARRANTY & RETURNS</h3>
+            
+            <div class="fca-card" style="margin-bottom: 1.5rem; cursor: pointer;">
+                <h4 style="margin-bottom: 1rem; display: flex; justify-content: space-between; align-items: center;">
+                    What is your guarantee on finish quality?
+                    <span style="color: var(--primary-yellow);">+</span>
+                </h4>
+                <p style="color: var(--text-muted); line-height: 1.6;">We offer a 2-year guarantee against UV yellowing and clear-coat delamination on all our carbon fiber components.</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Still have questions -->
+    <div style="margin-top: 6rem; text-align: center; border: 1px dashed #333; padding: 4rem; border-radius: 8px;">
+        <h3>STILL HAVE <span class="text-yellow">TECH QUESTIONS?</span></h3>
+        <p style="color: var(--text-muted); margin: 1rem 0 2rem;">Our engineers are online Monday-Friday, 9AM-6PM PST.</p>
+        <a href="{% url 'shop:contact' %}" class="fca-btn">LIVE SUPPORT ENQUIRY</a>
+    </div>
+
+</div>
+{% endblock %}

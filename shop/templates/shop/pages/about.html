@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About FCA Car Accessories{% endblock %}
+
+{% block content %}
+<section class="hero" style="min-height: 40vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('/media/site/hero/about.png'); background-size: cover; background-position: center;">
+    <div class="hero-content">
+        <h1 style="font-size: 4rem;">THE <span class="text-yellow">DNA</span> OF PERFORMANCE</h1>
+        <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 800px; margin: 2rem auto;">
+            We don't just sell parts. We engineer experiences that push the boundaries of automotive design and performance.
+        </p>
+    </div>
+</section>
+
+<div class="container" style="padding-bottom: 8rem;">
+    <!-- Story Section -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; margin-top: -4rem;">
+        <div class="fca-card" style="height: 500px; padding: 0; overflow: hidden; position: relative; border: 1px solid rgba(255, 215, 0, 0.2);">
+            <div style="position: absolute; inset: 0; background: radial-gradient(circle at center, transparent, #0a0a0a); z-index: 1;"></div>
+            <div style="padding: 3rem; position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+                <span style="font-family: monospace; color: var(--primary-yellow); letter-spacing: 4px; font-size: 0.9rem;">EST. 2026</span>
+                <h2 style="font-size: 3rem; margin: 1.5rem 0;">BORN IN the <span class="text-yellow">GARAGE</span></h2>
+                <p style="color: var(--text-muted); font-size: 1.1rem; line-height: 1.7;">
+                    FCA started with a simple obsession: finding the perfect balance between track performance and street style. 
+                    What began as a custom tuning shop has evolved into a global authority for elite carbon fiber and performance upgrades.
+                </p>
+            </div>
+        </div>
+        
+        <div>
+            <div style="margin-bottom: 4rem;">
+                <h3 style="color: var(--primary-yellow); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">01 / INNOVATION</h3>
+                <h2 style="margin: 1rem 0;">Precision <span class="text-yellow">Engineering</span></h2>
+                <p style="color: var(--text-muted);">Every product in our catalog undergoes rigorous stress testing and aerodynamic validation.</p>
+            </div>
+            <div style="margin-bottom: 4rem;">
+                <h3 style="color: var(--primary-yellow); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">02 / AESTHETICS</h3>
+                <h2 style="margin: 1rem 0;">Visual <span class="text-yellow">Impact</span></h2>
+                <p style="color: var(--text-muted);">We believe in the 'Golden Hour' of design—where every curve captures light and speed perfectly.</p>
+            </div>
+            <div>
+                <h3 style="color: var(--primary-yellow); font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase;">03 / SUPPORT</h3>
+                <h2 style="margin: 1rem 0;">Expert <span class="text-yellow">Guidance</span></h2>
+                <p style="color: var(--text-muted);">Our team consists of mechanics and designers, not just salesmen. We speak your language.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Values Grid -->
+    <div style="margin-top: 10rem; text-align: center;">
+        <h2 style="font-size: 3rem; margin-bottom: 4rem;">DRIVEN BY <span class="text-yellow">CORE VALUES</span></h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
+            <div class="fca-card feature-card" style="padding: 3rem; text-align: left;">
+                <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1.5rem;"><i class="fas fa-fire"></i></div>
+                <h3 style="margin-bottom: 1rem;">RAW PASSION</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">We live for the smell of high-octane fuel and the sound of a perfect downshift.</p>
+            </div>
+            <div class="fca-card feature-card" style="padding: 3rem; text-align: left;">
+                <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1.5rem;"><i class="fas fa-gem"></i></div>
+                <h3 style="margin-bottom: 1rem;">UNCOMPROMISED QUALITY</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">If it's not good enough for our personal builds, it's not good enough for yours.</p>
+            </div>
+            <div class="fca-card feature-card" style="padding: 3rem; text-align: left;">
+                <div class="feature-icon" style="font-size: 3rem; margin-bottom: 1.5rem;"><i class="fas fa-rocket"></i></div>
+                <h3 style="margin-bottom: 1rem;">FUTURE READY</h3>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">From EV performance to retro-modding, we're always ahead of the curve.</p>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 8rem; text-align: center; background: #111; padding: 6rem; border-radius: 20px;">
+        <h2 style="font-size: 2.5rem; margin-bottom: 2rem;">READY TO UPGRADE YOUR <span class="text-yellow">LEGACY?</span></h2>
+        <a href="{% url 'shop:product_list' %}" class="fca-btn" style="padding: 1.5rem 3rem; font-size: 1.2rem;">BACK TO SHOP</a>
+    </div>
+</div>
+{% endblock %}

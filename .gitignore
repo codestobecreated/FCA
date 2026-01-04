@@ -1,0 +1,10 @@
+venv/
+.env
+__pycache__/
+*.pyc
+db.sqlite3
+.DS_Store
+.vscode/
+# We want to keep media/site but usually ignore other media
+media/
+!media/site/

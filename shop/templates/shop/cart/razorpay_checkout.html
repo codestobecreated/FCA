@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Razorpay Checkout | FCA Sync{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 5rem; padding-bottom: 8rem; min-height: 80vh; text-align: center;">
+    <h1 style="font-size: 3rem; margin-bottom: 2rem;">SECURE <span class="text-yellow">GATEWAY</span></h1>
+    <p style="color: var(--text-muted); font-family: monospace; letter-spacing: 2px; margin-bottom: 4rem;">
+        ORDER_ID: {{ razorpay_order_id }} // STATUS: READY_FOR_SYNC
+    </p>
+
+    <div class="fca-card" style="display: inline-block; padding: 4rem; max-width: 600px; text-align: left;">
+        <h3 style="margin-bottom: 2rem;">TRANSACTION DETAILS</h3>
+        <p style="margin-bottom: 1rem;"><strong>NAME:</strong> {{ order.full_name }}</p>
+        <p style="margin-bottom: 1rem;"><strong>EMAIL:</strong> {{ order.email }}</p>
+        <p style="margin-bottom: 1rem;"><strong>AMOUNT:</strong> ₹{{ order.total_amount }}</p>
+        
+        {% if simulation %}
+        <div style="margin-top: 2rem; padding: 1rem; background: rgba(255, 68, 68, 0.1); border: 1px solid #ff4444; border-radius: 4px; color: #ff4444; font-size: 0.8rem; margin-bottom: 2rem;">
+            ⚠️ SIMULATION MODE ACTIVE: Razorpay Authentication Failed.
+        </div>
+        <button id="simulate-success" class="fca-btn" style="width: 100%; padding: 1.5rem; font-size: 1.2rem; background: #4CAF50; color: white;">
+            SIMULATE PAYMENT SUCCESS (DEBUG)
+        </button>
+        {% else %}
+        <button id="rzp-button1" class="fca-btn" style="width: 100%; margin-top: 3rem; padding: 1.5rem; font-size: 1.2rem;">
+            PAY NOW via RAZORPAY
+        </button>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Razorpay Checkout Form -->
+<form action="{% url 'shop:payment_status' %}" method="POST" style="display: none;">
+    {% csrf_token %}
+    <input type="hidden" name="razorpay_payment_id" id="razorpay_payment_id" value="{% if simulation %}sim_pay_{{ razorpay_order_id }}{% endif %}">
+    <input type="hidden" name="razorpay_order_id" id="razorpay_order_id" value="{{ razorpay_order_id }}">
+    <input type="hidden" name="razorpay_signature" id="razorpay_signature" value="{% if simulation %}sim_sig_{{ razorpay_order_id }}{% endif %}">
+</form>
+
+<!-- Razorpay Script -->
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    {% if simulation %}
+    document.getElementById('simulate-success').onclick = function(e){
+        alert("SIMULATING SUCCESSFUL TRANSACTION...");
+        document.forms[0].submit();
+    }
+    {% else %}
+    var options = {
+        "key": "{{ razorpay_merchant_key }}",
+        "amount": "{{ amount }}",
+        "currency": "{{ currency }}",
+        "name": "FCA Car Accessories",
+        "description": "Premium Cyber-Automotive Transaction",
+        "order_id": "{{ razorpay_order_id }}",
+        "handler": function (response){
+            document.getElementById('razorpay_payment_id').value = response.razorpay_payment_id;
+            document.getElementById('razorpay_order_id').value = response.razorpay_order_id;
+            document.getElementById('razorpay_signature').value = response.razorpay_signature;
+            document.forms[0].submit();
+        },
+        "prefill": {
+            "name": "{{ order.full_name }}",
+            "email": "{{ order.email }}",
+            "contact": "{{ order.phone }}"
+        },
+        "theme": { "color": "#ffd700" }
+    };
+    var rzp1 = new Razorpay(options);
+    document.getElementById('rzp-button1').onclick = function(e){
+        rzp1.open();
+        e.preventDefault();
+    }
+    {% endif %}
+</script>
+{% endblock %}

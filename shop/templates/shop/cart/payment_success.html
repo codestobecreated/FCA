@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Payment Success | FCA Sync{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 8rem; padding-bottom: 8rem; min-height: 80vh; text-align: center;">
+    <div style="font-size: 5rem; color: #4CAF50; margin-bottom: 2rem;">✓</div>
+    <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">SYNC <span style="color: #4CAF50;">SUCCESSFUL</span></h1>
+    <p style="color: var(--text-muted); font-family: monospace; letter-spacing: 2px; margin-bottom: 4rem;">
+        ORDER_ID: {{ order.razorpay_order_id }} // STATUS: COMPLETED
+    </p>
+
+    <div class="fca-card" style="display: inline-block; padding: 4rem; max-width: 600px; text-align: left; border-color: #4CAF50;">
+        <h3 style="margin-bottom: 2rem;">ORDER SUMMARY</h3>
+        <p style="margin-bottom: 1rem; color: #4CAF50;"><strong>SHIPPING STATUS: {{ order.status }}</strong></p>
+        <p style="margin-bottom: 1rem;"><strong>NAME:</strong> {{ order.full_name }}</p>
+        <p style="margin-bottom: 1rem;"><strong>TRACKING ID:</strong> {{ order.tracking_id|default:"PENDING" }}</p>
+        <p style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-muted);">
+            You will receive updates via email/SMS as your shipment progresses through our logistics network.
+        </p>
+        
+        <a href="{% url 'shop:product_list' %}" class="fca-btn" style="display: block; width: 100%; margin-top: 3rem; text-align: center; text-decoration: none;">
+            RETURN TO TERMINAL
+        </a>
+    </div>
+</div>
+{% endblock %}

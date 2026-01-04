@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Contact FCA Support{% endblock %}
+
+{% block content %}
+<section class="hero" style="min-height: 40vh; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.8)), url('/media/site/hero/contact.png'); background-size: cover; background-position: center;">
+    <div class="hero-content">
+        <h1 style="font-size: 4rem;">CONNECT WITH the <span class="text-yellow">TEAM</span></h1>
+        <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px; margin: 2rem auto;">
+            Our specialists are standing by to assist with fitment advice, project planning, and technical support.
+        </p>
+    </div>
+</section>
+
+<div class="container" style="padding-bottom: 8rem;">
+    <div style="display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; margin-top: -4rem;">
+        <!-- Contact Info -->
+        <div>
+            <div class="fca-card" style="padding: 3rem; margin-bottom: 2rem; background: rgba(255, 255, 255, 0.02);">
+                <h3 style="color: var(--primary-yellow); letter-spacing: 2px; font-size: 0.8rem; margin-bottom: 1.5rem;">DIRECT CHANNELS</h3>
+                
+                <div style="margin-bottom: 3rem;">
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">Technical Support</p>
+                    <p style="font-size: 1.2rem; font-weight: 700;">support@fca-accessories.com</p>
+                </div>
+
+                <div style="margin-bottom: 3rem;">
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">Press & Partnerships</p>
+                    <p style="font-size: 1.2rem; font-weight: 700;">media@fca-accessories.com</p>
+                </div>
+
+                <div>
+                    <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.5rem; text-transform: uppercase;">Visit the Lab</p>
+                    <p style="font-size: 1.1rem; line-height: 1.6;">
+                        37.7749° N, 122.4194° W<br>
+                        123 Performance Way, Suite 400<br>
+                        San Francisco, CA 94103
+                    </p>
+                </div>
+            </div>
+
+            <div class="fca-card" style="padding: 2rem; display: flex; align-items: center; gap: 1.5rem; border-color: rgba(76, 175, 80, 0.3);">
+                <div style="width: 12px; height: 12px; border-radius: 50%; background: #4CAF50; box-shadow: 0 0 10px #4CAF50;"></div>
+                <div>
+                    <p style="font-size: 0.9rem; font-weight: 700;">SYSTEM STATUS: OPTIMAL</p>
+                    <p style="font-size: 0.8rem; color: var(--text-muted);">Current support response time: < 2 hours</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Form -->
+        <div class="fca-card" style="padding: 4rem; position: relative; overflow: hidden;">
+            <div style="position: absolute; top: 0; right: 0; padding: 2rem; opacity: 0.05; font-size: 8rem; font-weight: 900; pointer-events: none;">ENQ</div>
+            
+            <h2 style="font-size: 2.5rem; margin-bottom: 1rem;">SECURE <span class="text-yellow">ENQUIRY</span></h2>
+            <p style="color: var(--text-muted); margin-bottom: 3rem;">Submit your details and a specialist will contact you shortly.</p>
+            
+            <form>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; color: var(--primary-yellow); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">Full Name</label>
+                        <input type="text" placeholder="John Doe" style="width: 100%; padding: 1.2rem; background: #111; border: 1px solid #222; border-radius: 4px; color: white; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary-yellow)'" onblur="this.style.borderColor='#222'">
+                    </div>
+                    <div>
+                        <label style="display: block; font-size: 0.8rem; color: var(--primary-yellow); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">Email Address</label>
+                        <input type="email" placeholder="john@example.com" style="width: 100%; padding: 1.2rem; background: #111; border: 1px solid #222; border-radius: 4px; color: white; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary-yellow)'" onblur="this.style.borderColor='#222'">
+                    </div>
+                </div>
+
+                <div style="margin-bottom: 2rem;">
+                    <label style="display: block; font-size: 0.8rem; color: var(--primary-yellow); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">Vehicle Model</label>
+                    <input type="text" placeholder="e.g. 2024 Tesla Model S / Porsche 911" style="width: 100%; padding: 1.2rem; background: #111; border: 1px solid #222; border-radius: 4px; color: white; outline: none; transition: border-color 0.3s;" onfocus="this.style.borderColor='var(--primary-yellow)'" onblur="this.style.borderColor='#222'">
+                </div>
+
+                <div style="margin-bottom: 3rem;">
+                    <label style="display: block; font-size: 0.8rem; color: var(--primary-yellow); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 1px;">Message / Build Inquiry</label>
+                    <textarea rows="5" placeholder="How can we help you upgrade your drive?" style="width: 100%; padding: 1.2rem; background: #111; border: 1px solid #222; border-radius: 4px; color: white; outline: none; transition: border-color 0.3s; resize: none;" onfocus="this.style.borderColor='var(--primary-yellow)'" onblur="this.style.borderColor='#222'"></textarea>
+                </div>
+
+                <button class="fca-btn" style="width: 100%; padding: 1.5rem; font-size: 1.1rem; letter-spacing: 2px;">SEND ENCRYPTED MESSAGE</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

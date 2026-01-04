@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Payment Failed | FCA Sync{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 8rem; padding-bottom: 8rem; min-height: 80vh; text-align: center;">
+    <div style="font-size: 5rem; color: #ff4444; margin-bottom: 2rem;">⚠</div>
+    <h1 style="font-size: 3.5rem; margin-bottom: 1rem;">SYNC <span style="color: #ff4444;">FAILED</span></h1>
+    <p style="color: var(--text-muted); font-family: monospace; letter-spacing: 2px; margin-bottom: 4rem;">
+        ERROR: SIGNATURE_MISMATCH // STATUS: ABORTED
+    </p>
+
+    <div class="fca-card" style="display: inline-block; padding: 4rem; max-width: 600px; text-align: left; border-color: #ff4444;">
+        <h3 style="margin-bottom: 2rem;">DIAGNOSTIC REPORT</h3>
+        <p style="color: #ff4444; font-family: monospace;">{{ error }}</p>
+        
+        <a href="{% url 'shop:cart_detail' %}" class="fca-btn" style="display: block; width: 100%; margin-top: 3rem; text-align: center; text-decoration: none;">
+            RETRY TRANSACTION
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Privacy Policy | FCA Secure{% endblock %}
+
+{% block content %}
+<div class="container" style="padding-top: 8rem; padding-bottom: 8rem; max-width: 900px;">
+    <h1 style="font-size: 3rem; margin-bottom: 1rem;">PRIVACY <span class="text-yellow">POLICY</span></h1>
+    <p style="color: var(--text-muted); font-family: monospace; font-size: 0.8rem; margin-bottom: 4rem;">SECURITY STATUS: ENCRYPTED // SSL ACTIVE</p>
+
+    <div style="line-height: 1.8; color: var(--text-muted);">
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: white; margin-bottom: 1.5rem;">1. DATA COLLECTION</h2>
+            <p>At FCA, we value your privacy. We collect minimal information necessary to process your automotive orders, including name, shipping address, and vehicle specifications for fitment verification.</p>
+        </section>
+
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: white; margin-bottom: 1.5rem;">2. SECURITY ARCHITECTURE</h2>
+            <p>All transactions are processed through AES-256 bit encrypted channels. We do not store raw credit card data on our local servers; all payment processing is handled by Tier-1 PCI-compliant financial partners.</p>
+        </section>
+
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: white; margin-bottom: 1.5rem;">3. VEHICLE DATA</h2>
+            <p>Information regarding your vehicle builds and specifications is used solely for improving our product recommendations and ensuring hardware compatibility. This data is never sold to third-party marketing firms.</p>
+        </section>
+
+        <section style="margin-bottom: 3rem;">
+            <h2 style="color: white; margin-bottom: 1.5rem;">4. YOUR RIGHTS</h2>
+            <p>Under global data protection regulations, you have the right to request a full extract of your data or its permanent deletion from our hardware synchronization servers at any time.</p>
+        </section>
+
+        <div style="margin-top: 6rem; text-align: center; color: var(--text-muted); font-size: 0.8rem;">
+            Questions about your data? Contact our Data Protection Officer at <span class="text-yellow">privacy@fca-accessories.com</span>.
+        </div>
+    </div>
+</div>
+{% endblock %}
